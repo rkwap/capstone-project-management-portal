@@ -1,0 +1,89 @@
+{% extends "dashboard.html" %}
+
+{% block main %}
+{% if sel_grp == True %}
+
+  {% if all_groups !=[] %}
+  <div align="center">
+            <div class="col-lg-6 col-md-7">
+              <div class="card">
+                <div class="header">
+                  <h4 class="title"><b>Select group</b></h4>
+                </div>
+                  <br>
+                    <p class="text-justify text-muted">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select a group from the list of all groups.
+                    </p>
+
+                <div class="content">
+                  <form action="" method="get" accept-charset="utf-8">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                            <select class="form-control border-input" name="group">
+                                {% for grp in all_groups %}
+                                <option value="{{ grp[0] }}">CPG {{ grp[0] }}</option>
+                                {% endfor %}
+                              </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-info btn-fill btn-wd">Submit</button>
+                    </div>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% else %}
+          <div class="col-lg-6 col-md-7">
+              <div class="card">
+                <div class="content">
+                <b>No groups are formed yet.</b>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+  </div>
+{% elif edit_params %}
+<div align="center">
+{% if title is not none %}
+  <div class="col-lg-6 col-md-5">
+    <div class="card">
+      <div class="header">
+        <h4 class="title text-left"><b>Edit Project Details</b></h4>
+      </div>
+      <div class="content">
+        <form action="{{ url_for('mentor.edit_group') }}" method="post" accept-charset="utf-8">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group text-left">
+                  <label><b>Project Title:</b></label>
+                  <input class="form-control border-input" name="title" value="{{title.0.0|title_split}}" placeholder="Title" type="text">
+              </div>
+              <div class="form-group text-left">
+                  <label><b>Project Description:</b></label>
+                  <textarea class="form-control border-input" rows="6" name="description">{{title.0.0|description_split}}</textarea>
+              </div>
+            </div>
+          </div>
+          <div class="text-left">
+            <input name="group" value="{{group_id}}" hidden>
+            <button type="submit" class="btn btn-info btn-fill btn-wd">Submit</button>
+          </div>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% else %}
+<h3>Group Doesn't Exists</h3>
+{% endif %}
+</div>
+
+{% else %}
+{% endif %}
+
+{% endblock %}

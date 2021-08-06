@@ -1,0 +1,45 @@
+{% extends 'index_login.html'%}
+{% block image %} /images/login.jpg {% endblock %}
+{% block content %}
+<form class="login100-form" action="" method="POST" accept-charset="utf-8">
+  <span class="login100-form-title p-b-59">
+    Sign Up
+  </span>
+
+  <div class="wrap-input100">
+    <span class="label-input100">Full Name</span>
+    <input class="input100" type="text" name="name" placeholder="Name" required>
+    <span class="focus-input100"></span>
+  </div>
+
+  <div class="wrap-input100">
+    <span class="label-input100">Email</span>
+    <input class="input100" type="text" name="email" placeholder="email@thapar.edu" required>
+    <span class="focus-input100"></span>
+  </div>
+
+  <div class="wrap-input100">
+    <span class="label-input100"> Password </span>
+    <input class="input100" type="password" name="password" placeholder="Password" required>
+    <span class="focus-input100"></span>
+  </div>
+
+  <div class="wrap-input100">
+    <span class="label-input100"> Confirm Password </span>
+    <input class="input100" type="password" name="confpassword" placeholder="Confirm Password" required>
+    <span class="focus-input100"></span>
+  </div>
+  
+  <!--<div class="g-recaptcha" data-sitekey="{{SITE_KEY}}"></div>-->
+  
+  <div class="container-login100-form-btn">
+    <div class="wrap-login100-form-btn">
+      <div class="login100-form-bgbtn"></div>
+      <button class="login100-form-btn" type="submit">
+        Sign Up
+      </button>
+    </div>
+  </div>
+
+</form>
+{% endblock %}

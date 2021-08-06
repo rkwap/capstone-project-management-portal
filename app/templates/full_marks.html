@@ -1,0 +1,62 @@
+{% extends "dashboard.html" %}
+
+{% block main %}
+
+<div align="center">
+  <div class="col-lg-8 col-md-7">
+    <div class="card">
+      <div class="header">
+        <h4 class="title">Total Marks of the Evaluation</h4>
+      </div>
+      <div class="content">
+        <form id="full_marks" action="{{ url_for('admin.full_marks') }}" method="post" accept-charset="utf-8">
+          <div class="row">
+            <div class="col-md-6">
+                <select class="selectpicker show-menu-arrow" name="eval_id" data-style="btn-info btn btn-block" data-size="6">
+                  {% for i in range(1,7) %}
+                    <option value={{i}}> Evaluation {{i}}</option>
+                  {% endfor %}
+                  {% for i in range(7,10) %}
+                    <option value={{i}}> Panel Evaluation {{i-6}}</option>
+                  {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                  <input class="form-control border-input" name="full_marks" placeholder="Full Marks" type="text" required>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+              <b class="btn btn-info btn-fill btn-wd" data-toggle="modal" data-target="#exampleModalCenter">Submit</b>
+          </div>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block modal %}
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLongTitle">Confirmation</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4 class="text-center"> Are you sure?</h4>
+      </div>
+      <div class="modal-footer">
+				<input type="submit" form="full_marks" class="btn btn-info"/>
+        <a type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

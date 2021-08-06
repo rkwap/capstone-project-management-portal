@@ -1,0 +1,181 @@
+{% extends "dashboard.html" %}
+
+{% block main %}
+
+<div align="center">
+  {% if query %}
+
+  <div class="col-md-8">
+      <div class="content">
+
+        {% if not group_marks %}
+        <div class="row">
+            <div class="typo-line">
+                <blockquote>
+                <p class="text-justify">
+                  Step I: <b>Select Panel Evaluation 2.</b><br>
+                Step II : Select Group from the selected panel.
+                </p>
+                </blockquote>
+            </div>
+        {% endif %}
+      {% if follow_up1 is not defined%}
+      <div class="col-md-6">
+          <form action="{{ url_for('mentor.panel_marks') }}" method="post" accept-charset="utf-8">
+                <div class="form-group">
+                  <label>Select Panel Group from Different Panel Evaluations</label>
+                    <select class="form-control border-input" name="panel_id">
+                      {% for key, values in panel.items() %}
+                          <optgroup label="Panel Evaluation {{key}}">
+                            {% for value in values %}
+                              <option value="{{key~'_'~value}}">Panel {{value}}</option>
+                            {% endfor %}
+                          </optgroup>
+                       {% endfor %}
+                    </select>
+                </div>
+            <div class="text-center">
+              <button type="submit" name="btn" value="sel_panel" class="btn btn-info btn-fill btn-wd">Select Panel</button>
+            </div>
+            <div class="clearfix"></div>
+          </form>
+      </div>
+      {%endif%}
+
+  {% if sel_groups %}
+      <div class="col-md-6">
+        <form action="{{ url_for('mentor.panel_marks') }}" method="post" accept-charset="utf-8">
+            <br>
+              <div class="form-group">
+                <label>Select Groups from Panel</label>
+                  <select class="form-control border-input" name="group_id">
+                    {% for val in groups %}
+                        <option value="{{val[2]}}">Group {{val[0]}} {% if val[1]==1 %} (Marked) {% endif %}</option>
+                     {% endfor %}
+                  </select>
+              </div>
+          <div class="text-center">
+            <button type="submit" name="btn" value="sel_group" class="btn btn-info btn-fill btn-wd">Select Group in Selected Panel</button>
+          </div>
+          <div class="clearfix"></div>
+          <br><br>
+        </form>
+      </div>
+  {% endif %}
+      </div>
+    </div>
+  </div>
+
+
+
+  {% if group_marks %}
+
+  <h3 class="text-center text-warning"><b>Panel Evaluation {{eval_id}}</b></h3>
+  <h4 class="text-center text-primary"><b>Panel No. {{panel_id}}</b> - <b>Group No. {{group_id}}</b></h4>
+
+    {% if date_details[(eval_id|int)-1][1] is not none and date_details[(eval_id|int)-1][2] is not none%}
+        {% if now >= date_details[(eval_id|int)-1][1] and now <= date_details[(eval_id|int)-1][2] %}
+          {% set disabled = False %}
+        {% else %}
+         {% set disabled = True %}
+        {% endif %}
+    {% endif %}
+
+
+    <div class="col-lg-12 col-md-12 card">
+        <div class="card-header">
+            <h4 class="card-title text-danger">Project Title: {{ group_details[0][2]|title_split }}</h4>
+            <h5 class="card-title">Project Description: {{group_details[0][2]|description_split}}</h5>
+            <p class="card-title text-success"><b>Mentor : {{ mentor }}</b></p>
+        </div>
+
+      <form action="" method="post" accept-charset="utf-8">
+        <table class="table table-striped" text-align="center">
+          <thead>
+            <tr class="success">
+              <th style="text-align:center"><b>Roll No</b></th>
+              <th style="text-align:center"><b>Name</b></th>
+              <th style="text-align:center"><b>Obtained Marks</b></th>
+            </tr>
+          </thead>
+          <tbody>
+            <div id="accordian">
+              {% set cnt = 0 %}
+            {% for student in students %}
+              {% set outer_loop = loop %}
+              {% set cnt = cnt + 1 %}
+              {% if student[0] %}
+                {% set s = [0] %}
+              <tr data-toggle="collapse" data-target="#{{student[0]}}" aria-expanded="false">
+                <td style="text-align:center"><b>{{ student[0] }}</b></td>
+                <td style="text-align:center"><b>{{ student[1] }}</b></td>
+                <input name="roll_{{loop.index}}" value="{{student[0]}}" hidden>
+                <input name="name_{{loop.index}}" value="{{student[1]}}" hidden>
+                {% for i in eval_details %}
+                  {% if s.append(s.pop()+ i[2]) %}{% endif %}
+                {% endfor %}
+                <td style="text-align:center">
+                    <div id="headingOne">
+                      {% if s_marks[outer_loop.index0]|sum <0 %}
+                        <b>0/{{s[0]}}</b>
+                      {% else %}
+                        <b>{{ s_marks[outer_loop.index0]|sum}}/{{ s[0] }}</b>
+                      {% endif %}
+                    </div>
+                </td>
+              </tr>
+              <tr class="warning">
+                  <td text-align="center" colspan="5">
+                    <div id={{student[0]}} class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                      <!-- accordian content   starts -->
+                      <table class="table table-hover" text-align="center">
+                        <thead>
+                          <tr class="info">
+                            <th style="text-align:center"><b>Parameters</b></th>
+                            <th style="text-align:center"><b>Assigned Marks</b></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for j in eval_details %}
+
+                            <tr class="warning">
+                                <td align="center">{{ j[1] }}</td>
+                                <td align="center">
+                                  <select class="form-control border-input" name="{{ student[0]~'_'~j[0] }}" data-style="btn-info btn btn-block" data-size="{{j|length}}" {% if disabled%} disabled {%endif%}>
+                                      <option value="{{eval_id~'_'~panel_id~'_'~group_id~'_'~-1}}" {% if s_marks[outer_loop.index0][j[0]-1] == '-1' %} selected {% endif %}>Absent</option>
+                                      <option value="{{eval_id~'_'~panel_id~'_'~group_id~'_'~'NULL'}}" {% if not s_marks[outer_loop.index0][j[0]-1] %} selected {% endif %}>Not Marked</option>
+                                      {% for i in range(0,j[2]+1) %}
+                                      <option value="{{eval_id~'_'~panel_id~'_'~group_id~'_'~i}}" {% if s_marks[outer_loop.index0][j[0]-1] == i %} selected {% endif %}>{{i}}</option>
+                                      {% endfor %}
+                                  </select>
+                                </td>
+                              </tr>
+                              {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+              </tr>
+              {% endif %}
+            {% endfor %}
+
+            </div>
+
+
+            </tbody>
+        </table>
+        <input name="eval_id" value="{{eval_id}}" hidden>
+        {% if not disabled %}
+        <div class="text-center">
+          <button type="submit" name="btn" value="marks" class="btn btn-info btn-fill btn-wd">Submit Marks</button>
+        </div>
+        {% endif %}
+        <div class="clearfix"></div>
+        <br><br>
+          </form>
+  {% endif %}
+  {% else %}
+  <h1> No Records Found </h1>
+  {% endif %}
+</div>
+{% endblock %}

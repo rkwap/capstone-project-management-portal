@@ -1,0 +1,209 @@
+Group,Project Title,Project Description,Mentor1,Mentor2,Roll Number,Name,Eval1,Eval2,Eval3,Eval4,Eval5,Eval6,Total
+CPG 8,Automated Detection of Tuberculosis using Deep Learning, The most reliable and non-invasive test for Tuberculosis currently is the ZN stain test and it's only demerit is that it takes a lot of time approx. 0.5-1 hr per sample to complete the test and is very sensitive to human error. Thus we aim to speed up the process and reduce the number of false results that we get due to human error using concepts of Deep Learning. ,Dr. Ashima Singh,,101703343,Milan Jain,5,,,,,,5
+CPG 8,Automated Detection of Tuberculosis using Deep Learning, The most reliable and non-invasive test for Tuberculosis currently is the ZN stain test and it's only demerit is that it takes a lot of time approx. 0.5-1 hr per sample to complete the test and is very sensitive to human error. Thus we aim to speed up the process and reduce the number of false results that we get due to human error using concepts of Deep Learning. ,Dr. Ashima Singh,,101703344,Mohan Arora,9,,,,,,9
+CPG 8,Automated Detection of Tuberculosis using Deep Learning, The most reliable and non-invasive test for Tuberculosis currently is the ZN stain test and it's only demerit is that it takes a lot of time approx. 0.5-1 hr per sample to complete the test and is very sensitive to human error. Thus we aim to speed up the process and reduce the number of false results that we get due to human error using concepts of Deep Learning. ,Dr. Ashima Singh,,101703347,Mohit Kumar Thakur,2,,,,,,2
+CPG 8,Automated Detection of Tuberculosis using Deep Learning, The most reliable and non-invasive test for Tuberculosis currently is the ZN stain test and it's only demerit is that it takes a lot of time approx. 0.5-1 hr per sample to complete the test and is very sensitive to human error. Thus we aim to speed up the process and reduce the number of false results that we get due to human error using concepts of Deep Learning. ,Dr. Ashima Singh,,101703351,Mridul Krishan Gautam,8,,,,,,8
+CPG 9,INTELLIGENT VIDEO DESCRIPTION," As per our prior discussion on 23.1.20 when our project was accepted by you and cross checking on google patents:
+
+Aim:
+This particular invention aims to extract rich information from a video file frame by frame.
+This information is then used for any of the 3 purposes:
+
+1.	Fed to a pre-existent TTS (text to speech) system in order to aid visually impaired users.
+2.	Create a document to give a scene by scene detailed analysis of the video.
+3.	Using frequency of occurrence of certain words give tags for the video.
+
+
+Methodology: -
+By setting a suitable frame rate as per requirement and video length, images are extracted.
+These images are fed to a Recurrent Neural Network in order to identify the “players” and “components” from the frame.
+Then via natural language processing, word vectors and markov chains the relationship between these “players” and “components”
+Is observed to give an accurate description of the scene.
+
+When pieced together the captions/descriptions of these frames creates a step by step summary of the entire video thereby providing information about the activities and scenes.
+
+
+Outputs: -
+This information is then used for any of the  purposes:
+
+1.Fed to a pre-existent TTS (text to speech) system in order to aid visually impaired users.
+2.Create a document to give a scene by scene detailed analysis of the video.
+3.Using frequency of occurrence of certain words give tags for    the video.
+
+
+Future Scope: -
+Descriptions of scenes with high similarity may be detected and discarded automatically.
+
+The complexity of the project is high, still for further refinement strategies pertinent to selection of most relevant scenes may be explored as well as better filtering.
+",Dr. Ashima Singh,,101703100,ARNAV JAIN,,,,,,,0
+CPG 9,INTELLIGENT VIDEO DESCRIPTION," As per our prior discussion on 23.1.20 when our project was accepted by you and cross checking on google patents:
+
+Aim:
+This particular invention aims to extract rich information from a video file frame by frame.
+This information is then used for any of the 3 purposes:
+
+1.	Fed to a pre-existent TTS (text to speech) system in order to aid visually impaired users.
+2.	Create a document to give a scene by scene detailed analysis of the video.
+3.	Using frequency of occurrence of certain words give tags for the video.
+
+
+Methodology: -
+By setting a suitable frame rate as per requirement and video length, images are extracted.
+These images are fed to a Recurrent Neural Network in order to identify the “players” and “components” from the frame.
+Then via natural language processing, word vectors and markov chains the relationship between these “players” and “components”
+Is observed to give an accurate description of the scene.
+
+When pieced together the captions/descriptions of these frames creates a step by step summary of the entire video thereby providing information about the activities and scenes.
+
+
+Outputs: -
+This information is then used for any of the  purposes:
+
+1.Fed to a pre-existent TTS (text to speech) system in order to aid visually impaired users.
+2.Create a document to give a scene by scene detailed analysis of the video.
+3.Using frequency of occurrence of certain words give tags for    the video.
+
+
+Future Scope: -
+Descriptions of scenes with high similarity may be detected and discarded automatically.
+
+The complexity of the project is high, still for further refinement strategies pertinent to selection of most relevant scenes may be explored as well as better filtering.
+",Dr. Ashima Singh,,101703121,ATISHAY JAIN,,,,,,,0
+CPG 9,INTELLIGENT VIDEO DESCRIPTION," As per our prior discussion on 23.1.20 when our project was accepted by you and cross checking on google patents:
+
+Aim:
+This particular invention aims to extract rich information from a video file frame by frame.
+This information is then used for any of the 3 purposes:
+
+1.	Fed to a pre-existent TTS (text to speech) system in order to aid visually impaired users.
+2.	Create a document to give a scene by scene detailed analysis of the video.
+3.	Using frequency of occurrence of certain words give tags for the video.
+
+
+Methodology: -
+By setting a suitable frame rate as per requirement and video length, images are extracted.
+These images are fed to a Recurrent Neural Network in order to identify the “players” and “components” from the frame.
+Then via natural language processing, word vectors and markov chains the relationship between these “players” and “components”
+Is observed to give an accurate description of the scene.
+
+When pieced together the captions/descriptions of these frames creates a step by step summary of the entire video thereby providing information about the activities and scenes.
+
+
+Outputs: -
+This information is then used for any of the  purposes:
+
+1.Fed to a pre-existent TTS (text to speech) system in order to aid visually impaired users.
+2.Create a document to give a scene by scene detailed analysis of the video.
+3.Using frequency of occurrence of certain words give tags for    the video.
+
+
+Future Scope: -
+Descriptions of scenes with high similarity may be detected and discarded automatically.
+
+The complexity of the project is high, still for further refinement strategies pertinent to selection of most relevant scenes may be explored as well as better filtering.
+",Dr. Ashima Singh,,101703128,AYUSH AGGARWAL,,,,,,,0
+CPG 9,INTELLIGENT VIDEO DESCRIPTION," As per our prior discussion on 23.1.20 when our project was accepted by you and cross checking on google patents:
+
+Aim:
+This particular invention aims to extract rich information from a video file frame by frame.
+This information is then used for any of the 3 purposes:
+
+1.	Fed to a pre-existent TTS (text to speech) system in order to aid visually impaired users.
+2.	Create a document to give a scene by scene detailed analysis of the video.
+3.	Using frequency of occurrence of certain words give tags for the video.
+
+
+Methodology: -
+By setting a suitable frame rate as per requirement and video length, images are extracted.
+These images are fed to a Recurrent Neural Network in order to identify the “players” and “components” from the frame.
+Then via natural language processing, word vectors and markov chains the relationship between these “players” and “components”
+Is observed to give an accurate description of the scene.
+
+When pieced together the captions/descriptions of these frames creates a step by step summary of the entire video thereby providing information about the activities and scenes.
+
+
+Outputs: -
+This information is then used for any of the  purposes:
+
+1.Fed to a pre-existent TTS (text to speech) system in order to aid visually impaired users.
+2.Create a document to give a scene by scene detailed analysis of the video.
+3.Using frequency of occurrence of certain words give tags for    the video.
+
+
+Future Scope: -
+Descriptions of scenes with high similarity may be detected and discarded automatically.
+
+The complexity of the project is high, still for further refinement strategies pertinent to selection of most relevant scenes may be explored as well as better filtering.
+",Dr. Ashima Singh,,101703516,SHIVANG RASTOGI,,,,,,,0
+CPG 11,Transport Management,"Transportation management has been an issue from many years. Let it be the accidents or the inefficient management of the traffic we tend to bring order to this chaos, with the Drone connectivity and intelligent algorithms, pattern matching the drone can fly in designated areas to re  solve these issues and provide assistance wherever needed, be it relief or real time navigation.",Dr. Ashima Singh,,101703055,Aman Kumar,,,,,,,0
+CPG 11,Transport Management,"Transportation management has been an issue from many years. Let it be the accidents or the inefficient management of the traffic we tend to bring order to this chaos, with the Drone connectivity and intelligent algorithms, pattern matching the drone can fly in designated areas to re  solve these issues and provide assistance wherever needed, be it relief or real time navigation.",Dr. Ashima Singh,,101703069,Aniket Gupta,,,,,,,0
+CPG 11,Transport Management,"Transportation management has been an issue from many years. Let it be the accidents or the inefficient management of the traffic we tend to bring order to this chaos, with the Drone connectivity and intelligent algorithms, pattern matching the drone can fly in designated areas to re  solve these issues and provide assistance wherever needed, be it relief or real time navigation.",Dr. Ashima Singh,,101703221,Harshit  Garg,,,,,,,0
+CPG 11,Transport Management,"Transportation management has been an issue from many years. Let it be the accidents or the inefficient management of the traffic we tend to bring order to this chaos, with the Drone connectivity and intelligent algorithms, pattern matching the drone can fly in designated areas to re  solve these issues and provide assistance wherever needed, be it relief or real time navigation.",Dr. Ashima Singh,,101703479,Sanchit Goel,,,,,,,0
+CPG 13,GREEN CLOUD COMPUTING,"Cloud computing is a highly scalable and cost-effective infrastructure for running HPC, enterprise and Web applications. However, the growing demand of Cloud infrastructure has drastically increased the energy consumption of data centers, which has become a critical
+issue. High energy consumption not only translates to high operational cost, which reduces the profit margin of Cloud providers, but also leads to high carbon emissions which is not
+environmentally friendly. Hence, energy-efficient solutions are required to minimize the impact of Cloud computing on the environment 
+
+So we aim at using GREEN CLOUD SIMULATOR in order to simulate different architectures and algorithms to design an energy efficient cloud .",Dr. Ashima Singh,,101703463,SAHIL BATRA,,,,,,,0
+CPG 13,GREEN CLOUD COMPUTING,"Cloud computing is a highly scalable and cost-effective infrastructure for running HPC, enterprise and Web applications. However, the growing demand of Cloud infrastructure has drastically increased the energy consumption of data centers, which has become a critical
+issue. High energy consumption not only translates to high operational cost, which reduces the profit margin of Cloud providers, but also leads to high carbon emissions which is not
+environmentally friendly. Hence, energy-efficient solutions are required to minimize the impact of Cloud computing on the environment 
+
+So we aim at using GREEN CLOUD SIMULATOR in order to simulate different architectures and algorithms to design an energy efficient cloud .",Dr. Ashima Singh,,101703464,SAHIL SONI,,,,,,,0
+CPG 13,GREEN CLOUD COMPUTING,"Cloud computing is a highly scalable and cost-effective infrastructure for running HPC, enterprise and Web applications. However, the growing demand of Cloud infrastructure has drastically increased the energy consumption of data centers, which has become a critical
+issue. High energy consumption not only translates to high operational cost, which reduces the profit margin of Cloud providers, but also leads to high carbon emissions which is not
+environmentally friendly. Hence, energy-efficient solutions are required to minimize the impact of Cloud computing on the environment 
+
+So we aim at using GREEN CLOUD SIMULATOR in order to simulate different architectures and algorithms to design an energy efficient cloud .",Dr. Ashima Singh,,101703546,Simran Batra ,,,,,,,0
+CPG 13,GREEN CLOUD COMPUTING,"Cloud computing is a highly scalable and cost-effective infrastructure for running HPC, enterprise and Web applications. However, the growing demand of Cloud infrastructure has drastically increased the energy consumption of data centers, which has become a critical
+issue. High energy consumption not only translates to high operational cost, which reduces the profit margin of Cloud providers, but also leads to high carbon emissions which is not
+environmentally friendly. Hence, energy-efficient solutions are required to minimize the impact of Cloud computing on the environment 
+
+So we aim at using GREEN CLOUD SIMULATOR in order to simulate different architectures and algorithms to design an energy efficient cloud .",Dr. Ashima Singh,,101883063,SAGAR MITTAL,,,,,,,0
+CPG 18,Driver Monitoring System,"In this Project we will attempt to make a Driver monitoring system. The project will have 5 parts namely - Heart Rate & Blood Pressure monitoring system, Respiratory Rate Measurement system, Alcohol detection system, Lane Change Detection system and Post Accident Response system. The former 4 systems will work at all times when  the vehicle is in motion while the latter will only be activated in case of an emergency. The five systems will work as follows:
+
+Heart Rate & Blood Pressure monitoring system:This system will keep track of the Cardiovascular profile of the driver to make sure that he/she is in a good state to drive. The blood pressure will be measured using the Photoplethysmography (PPG) signals which can measure Cardiovascular pulses by measuring the differences in reflected and transmitted light. The Heart Rate of the driver will be detected by facial skin color variation caused by blood circulation.
+
+Respiratory Rate measurement system: This system will measure the respiratory rate of the driver by using eulerian video magnification to sense the subtle movements in the chest region. These movements will be measured by magnifying the region of interest manifold.
+   
+Alcohol detection system: This system will check the driver’s breath for alcohol. A MQ3-Alcohol Gas Sensor will be used to detect alcohol fumes in the driver’s breath. If the alcohol content if greater than a threshold limit steps will be taken to ensure the driver’s safety.
+
+Lane Change Detection system: This system will check the road lane markings to make sure the driver does not break the lane changing rules. For example, if the driver is on a white line marked road (which does not permit drivers to switch lanes) and he/she tries to  switch to another lane, a buzzer will alert the driver of his/her mistake.
+
+Post Accident Response system: In case of an accident this system will alert the concerned authorities. The driver will be given an option to stop the system from sending for help in case of a false alarm.     
+",Dr. Ashima Singh,,101703068,Aniket Bansal,,,,,,,0
+CPG 18,Driver Monitoring System,"In this Project we will attempt to make a Driver monitoring system. The project will have 5 parts namely - Heart Rate & Blood Pressure monitoring system, Respiratory Rate Measurement system, Alcohol detection system, Lane Change Detection system and Post Accident Response system. The former 4 systems will work at all times when  the vehicle is in motion while the latter will only be activated in case of an emergency. The five systems will work as follows:
+
+Heart Rate & Blood Pressure monitoring system:This system will keep track of the Cardiovascular profile of the driver to make sure that he/she is in a good state to drive. The blood pressure will be measured using the Photoplethysmography (PPG) signals which can measure Cardiovascular pulses by measuring the differences in reflected and transmitted light. The Heart Rate of the driver will be detected by facial skin color variation caused by blood circulation.
+
+Respiratory Rate measurement system: This system will measure the respiratory rate of the driver by using eulerian video magnification to sense the subtle movements in the chest region. These movements will be measured by magnifying the region of interest manifold.
+   
+Alcohol detection system: This system will check the driver’s breath for alcohol. A MQ3-Alcohol Gas Sensor will be used to detect alcohol fumes in the driver’s breath. If the alcohol content if greater than a threshold limit steps will be taken to ensure the driver’s safety.
+
+Lane Change Detection system: This system will check the road lane markings to make sure the driver does not break the lane changing rules. For example, if the driver is on a white line marked road (which does not permit drivers to switch lanes) and he/she tries to  switch to another lane, a buzzer will alert the driver of his/her mistake.
+
+Post Accident Response system: In case of an accident this system will alert the concerned authorities. The driver will be given an option to stop the system from sending for help in case of a false alarm.     
+",Dr. Ashima Singh,,101703101,Arpit Singla,,,,,,,0
+CPG 18,Driver Monitoring System,"In this Project we will attempt to make a Driver monitoring system. The project will have 5 parts namely - Heart Rate & Blood Pressure monitoring system, Respiratory Rate Measurement system, Alcohol detection system, Lane Change Detection system and Post Accident Response system. The former 4 systems will work at all times when  the vehicle is in motion while the latter will only be activated in case of an emergency. The five systems will work as follows:
+
+Heart Rate & Blood Pressure monitoring system:This system will keep track of the Cardiovascular profile of the driver to make sure that he/she is in a good state to drive. The blood pressure will be measured using the Photoplethysmography (PPG) signals which can measure Cardiovascular pulses by measuring the differences in reflected and transmitted light. The Heart Rate of the driver will be detected by facial skin color variation caused by blood circulation.
+
+Respiratory Rate measurement system: This system will measure the respiratory rate of the driver by using eulerian video magnification to sense the subtle movements in the chest region. These movements will be measured by magnifying the region of interest manifold.
+   
+Alcohol detection system: This system will check the driver’s breath for alcohol. A MQ3-Alcohol Gas Sensor will be used to detect alcohol fumes in the driver’s breath. If the alcohol content if greater than a threshold limit steps will be taken to ensure the driver’s safety.
+
+Lane Change Detection system: This system will check the road lane markings to make sure the driver does not break the lane changing rules. For example, if the driver is on a white line marked road (which does not permit drivers to switch lanes) and he/she tries to  switch to another lane, a buzzer will alert the driver of his/her mistake.
+
+Post Accident Response system: In case of an accident this system will alert the concerned authorities. The driver will be given an option to stop the system from sending for help in case of a false alarm.     
+",Dr. Ashima Singh,,101703477,Samrath Pal Singh,,,,,,,0
+CPG 18,Driver Monitoring System,"In this Project we will attempt to make a Driver monitoring system. The project will have 5 parts namely - Heart Rate & Blood Pressure monitoring system, Respiratory Rate Measurement system, Alcohol detection system, Lane Change Detection system and Post Accident Response system. The former 4 systems will work at all times when  the vehicle is in motion while the latter will only be activated in case of an emergency. The five systems will work as follows:
+
+Heart Rate & Blood Pressure monitoring system:This system will keep track of the Cardiovascular profile of the driver to make sure that he/she is in a good state to drive. The blood pressure will be measured using the Photoplethysmography (PPG) signals which can measure Cardiovascular pulses by measuring the differences in reflected and transmitted light. The Heart Rate of the driver will be detected by facial skin color variation caused by blood circulation.
+
+Respiratory Rate measurement system: This system will measure the respiratory rate of the driver by using eulerian video magnification to sense the subtle movements in the chest region. These movements will be measured by magnifying the region of interest manifold.
+   
+Alcohol detection system: This system will check the driver’s breath for alcohol. A MQ3-Alcohol Gas Sensor will be used to detect alcohol fumes in the driver’s breath. If the alcohol content if greater than a threshold limit steps will be taken to ensure the driver’s safety.
+
+Lane Change Detection system: This system will check the road lane markings to make sure the driver does not break the lane changing rules. For example, if the driver is on a white line marked road (which does not permit drivers to switch lanes) and he/she tries to  switch to another lane, a buzzer will alert the driver of his/her mistake.
+
+Post Accident Response system: In case of an accident this system will alert the concerned authorities. The driver will be given an option to stop the system from sending for help in case of a false alarm.     
+",Dr. Ashima Singh,,101703491,Sarthak Sharma,,,,,,,0

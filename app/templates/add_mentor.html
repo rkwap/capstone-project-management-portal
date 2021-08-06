@@ -1,0 +1,70 @@
+{% extends "dashboard.html" %}
+
+{% block main %}
+
+<div align="center">
+  <div class="col-lg-8 col-md-7">
+      {% if team_details == [] %}
+      <div class="card"><div class="header"><b>No Group formed yet to assign mentor.</b></div><br></div>
+      {% else %}
+    <div class="card">
+      <div class="header">
+        <h4 class="title">Add Mentor</h4>
+      </div>
+      <div class="content">
+        <form id="add_mentor" action="{{ url_for('mentor.add_mentor') }}" method="post" accept-charset="utf-8">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label> Group </label>
+                <select class="form-control border-input" name="grp_id" data-style="btn-info btn btn-block" data-size="{{ team_details|length }}">
+                  {% for team in team_details %}
+                  <option value="{{ team[0] }}"> {{ team[1] }}'s Team </option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                  <label>Other Mentor Email-Id</label>
+                  <input class="form-control border-input" name="email" placeholder="Mentor Email-Id" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <b class="btn btn-info btn-fill btn-wd" data-toggle="modal" data-target="#exampleModalCenter">Submit</b>
+          </div>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+    {% endif %}
+</div>
+</div>
+
+{% endblock %}
+
+{% block modal %}
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLongTitle">Confirmation</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 class="text-center"> Are you sure? Enter your Password to Confirm</h5>
+        <div class="form-group">
+          <input class="form-control border-input" type="password" form="add_mentor" name="password" placeholder="Password">
+        </div>
+      </div>
+      <div class="modal-footer">
+				<input type="submit" form="add_mentor" class="btn btn-info"/>
+        <a type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

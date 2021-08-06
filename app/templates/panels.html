@@ -1,0 +1,146 @@
+{% extends 'dashboard.html' %}
+
+{% block main %}
+  <div class="col-lg-8 col-md-7">
+      <div class="content">
+        {% if not panel_created %}
+
+          <h3>No Panel Found.</h3>
+          <br>
+          <a href= "{{ url_for('admin.set_panel_eval') }}" class="btn btn-info btn-fill btn-wd">Create a Panel</a>
+        {% else %}
+          <div class="text-center">
+      			<div class="col-md-12">
+                <div class="typo-line">
+                    <blockquote>
+                    <p class="text-justify">
+                    Select Panel Evaluation and Panel No. to get details.
+                    </p>
+                    </blockquote>
+                </div>
+      						<form action="" method="post" accept-charset="utf-8">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Select Panel Evaluation</label>
+                          <select class="form-control border-input" name="eval_id">
+                            {% for i in range(1, 4) %}
+                            <option value={{i}}>{{i}}</option>
+                            {% endfor %}
+                          </select>
+                      </div>
+                    </div>
+      								<div class="col-md-6">
+      									<div class="form-group">
+                          <label>Select Panel</label>
+      											<select class="form-control border-input" name="panel_id">
+                              {% for i in range(1, panels_no+1) %}
+                              <option value={{i}}>{{i}}</option>
+                              {% endfor %}
+                            </select>
+      									</div>
+      								</div>
+      							<div class="text-center">
+      								<button type="submit" name = "btn" value="sel_panel" class="btn btn-info btn-fill btn-wd">Submit</button>
+      							</div>
+      							<div class="clearfix"></div>
+      						</form>
+      			</div>
+      		</div>
+        </div>
+      </div>
+
+          {% if show_panel %}
+            <div class="col-md-12">
+              <h4> Selected Panelists:-<br> <h4>
+                <div class="col-md-6">
+                  Panel Head:<b class="text-warning"> {{p_head[1]}}</b>
+                  <br><br>
+                  <div class="typo-line">
+                  <br><br>
+
+                      <blockquote>
+                      <p class="text-justify">
+                      List of Groups in this panel are shown below.
+                      </p>
+                      </blockquote>
+                  </div>
+            </div>
+              <div class="col-md-6">
+                Panelists:<b class="text-warning">
+                {% for p in p_panel %}
+                  {% if p %}
+                    {{p[1]}},
+                  {% endif %}
+                {% endfor %}
+                </b>
+                <br><br>
+                <div class="typo-line">
+                    <blockquote>
+                    <p class="text-justify">
+                    Select Panelists and Panel Head for this Panel.
+                    </p>
+                    </blockquote>
+                </div>
+            </div>
+            <br><hr>
+            </div>
+            <div class="col-md-12">
+              <div class="card">
+                <table class="table table-hover" align="center">
+                  <thead>
+                    <tr>
+                      <th style="text-align:center">Group Id</th>
+                      <th style="text-align:center">Project Title</th>
+                      <th style="text-align:center">Project Description</th>
+                      <th style="text-align:center"> Leader Name</th>
+                      <th style="text-align:center">Mentor</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for group in panel_temp %}
+                      <tr class="text-center">
+                        <td> {{ group[0] }} </td>
+                        <td> {{ group[2]|title_split }} </td>
+                        <td class="text-justify"> {{ group[2]|description_split }} </td>
+                        <td> {{ group[10] }} </td>
+                        <td> {{ group[9]}}</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <form action="" method="post" accept-charset="utf-8">
+                <div class="col-md-6">
+                <div class="form-group">
+                  <label>Panel Head</label>
+                  <select class="form-control border-input" name="panel_head">
+                    {% for i in range(p_mentors|length) %}
+                    <option value="{{p_mentors[i][0]}}" {% if p_mentors[i][0] == p_head[0] %}selected{% endif %}>{{p_mentors[i][1]}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Panelists</label><br>
+                    <select multiple class="selectpicker" data-style="btn btn-block" data-size="p_mentors|length" name="panelist">
+                      {% for i in range(p_mentors|length) %}
+                      <option value="{{p_mentors[i][0]}}" {% if p_mentors[i][0] in p_panel_id %} selected {% endif %}>{{p_mentors[i][1]}}</option>
+                      {% endfor %}
+                    </select>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="text-center">
+                  <button type="submit" name = "btn" value="panelists" class="btn btn-info btn-fill btn-wd">Submit</button>
+                </div>
+              </div>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+            {% endif %}
+          {% endif %}
+
+{% endblock %}

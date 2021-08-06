@@ -1,0 +1,26 @@
+{% extends 'index_login.html'%}
+{% block content %}
+<form class="login100-form" action="" method="POST" accept-charset="utf-8">
+  <span class="login100-form-title p-b-59">
+    Send Reset Password Link
+  </span>
+
+  <div class="wrap-input100">
+    <span class="label-input100">Email</span>
+    <input class="input100" type="text" name="email" placeholder="email@thapar.edu" required>
+    <span class="focus-input100"></span>
+  </div>
+
+<!--<div class="g-recaptcha" data-sitekey="{{SITE_KEY}}"></div>-->
+
+  <div class="container-login100-form-btn">
+    <div class="wrap-login100-form-btn">
+      <div class="login100-form-bgbtn"></div>
+      <button class="login100-form-btn" type="submit">
+        Send Link
+      </button>
+    </div>
+  </div>
+
+</form>
+{% endblock %}

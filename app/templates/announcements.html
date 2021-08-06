@@ -1,0 +1,22 @@
+{% extends 'dashboard_teams.html' %}
+
+{% block main %}
+  <div class="col-lg-8 col-md-7">
+    <div class="card">
+      <div class="header">
+        <h4 class="title">Announcements</h4>
+      </div>
+      <div class="content">
+        <ol>
+        {% for record in query %}
+            <li>
+                <b style="font-size: 1.6em"> {{ record[1] }} </b> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <i class="ti-calendar"></i> Dated:- {{ record[3] }}
+                <p> {{ record[2] }}</p>
+            </li> </br>
+        {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </div>
+{% endblock %}

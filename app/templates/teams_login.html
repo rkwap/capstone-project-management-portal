@@ -1,0 +1,49 @@
+{% extends 'index_login.html'%}
+{% block image %} /images/login_2.jpg {% endblock %}
+{% block content %}
+<form action="{{ url_for('teams.login') }}" method="POST" accept-charset="utf-8">
+  <span class="login100-form-title p-b-59">
+    Capstone Project Portal - Students
+  </span>
+  <span style="font-size: 1.5em;color: #257640;" class="login100-form-title p-b-30">
+    Login
+  </span>
+
+  <div class="wrap-input100">
+    <span class="label-input100">Email</span>
+    <input class="input100" type="text" name="email" placeholder="email@thapar.edu">
+    <span class="focus-input100"></span>
+  </div>
+
+  <div class="wrap-input100">
+    <span class="label-input100"> Password </span>
+    <input class="input100" type="password" name="password" placeholder="Password">
+    <span class="focus-input100"></span>
+  </div>
+
+  <!--<div class="g-recaptcha" data-sitekey="{{SITE_KEY}}"></div>-->
+  <br>  
+  <div class="container-login100-form-btn">
+    <div class="wrap-login100-form-btn">
+      <div class="login100-form-bgbtn"></div>
+      <button class="login100-form-btn" type="submit">
+        Log In
+      </button>
+    </div>
+  </div>
+</form>
+<br><br>
+<a href="{{ url_for('teams.register') }}" class="fs-17">
+  Haven't Registered Yet? Click Here
+</a>
+<!-- <div class="container-login100-form-btn">
+  <div class="wrap-login100-form-btn">
+    <div class="login100-form-bgbtn"></div>
+    <a href="">
+      <button class="login100-form-btn" type="submit">
+          
+      </button>
+    </a>
+  </div>
+</div> -->
+{% endblock %}

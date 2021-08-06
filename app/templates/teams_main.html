@@ -1,0 +1,61 @@
+{% extends 'dashboard_teams.html' %}
+
+{% block main %}
+  <div class="col-lg-8 col-md-7">
+    <div class="card">
+      <div class="header">
+        <h4 class="title"><b><ul>Team Details</ul></b></h4>
+      </div>
+      <div class="content">
+          <div class="row">
+            <div class="col-md-12">
+                <label><b><ul>Project Title : </ul></label> {{ team_details["project"]|title_split }}  </b><br>
+                <label><b><ul>Project Description : </ul></label> {{ team_details["project"]|description_split }} </b><br>
+                <label><b><ul>Mentor 1 : </ul></label> {{ team_details["mentor1"] }} </b><br>
+                {% if team_details["mentor2"] %}
+                    <label><b><ul>Mentor 2 : </ul></label> {{ team_details["mentor2"] }}</b><br>
+                {% endif %}
+
+          </div></div>
+
+          <div class="row">
+            <div class="col-md-12">
+                <label><b><ul><u>Group Leader Details : </u></ul><b></label><br>
+                <label><ul>Name :  </ul></label><b>{{ team_details["leader"]["name"] }}  </b>
+                <label><ul>Roll No. :  </ul></label><b> {{ team_details["leader"]["roll_no"] }} </b><br>
+                <label><ul>Email :  </ul></label><b>  {{ team_details["email"] }}</b>
+                <label><ul>Phone No. :</ul></label><b>  {{ team_details["phone_no"] }}</b><br>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+                <label><b><ul><u>Second Student Details : </u></ul><b></label><br>
+                <label><ul>Name :  </ul></label><b>{{ team_details["member2"]["name"] }} </b>
+                <label><ul>Roll No. :  </ul></label><b>  {{ team_details["member2"]["roll_no"] }}</b><br>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-12">
+                <label><b><ul><u>Third Student Details : </u></ul><b></label><br>
+                <label><ul>Name :  </ul></label><b>{{ team_details["member3"]["name"] }} </b>
+                <label><ul>Roll No. :  </ul></label><b>  {{ team_details["member3"]["roll_no"] }}</b><br>
+            </div>
+          </div>
+
+          {% if team_details["member4"] %}
+            <div class="row">
+              <div class="col-md-12">
+                  <label><b><ul><u>Fourth Student Details : </u></ul><b></label><br>
+                  <label><ul>Name :  </ul></label><b>{{ team_details["member4"]["name"] }}</b>
+                  <label><ul>Roll No. :  </ul></label><b>  {{ team_details["member4"]["roll_no"] }}</b><br>
+              </div>
+            </div>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

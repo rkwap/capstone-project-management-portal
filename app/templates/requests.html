@@ -1,0 +1,66 @@
+{% extends 'dashboard.html' %}
+
+{% block main %}
+  <div class="col-lg-8 col-md-7">
+    <div class="card">
+      <div class="header">
+        <h4 class="title"><b><ul>Confirm Group</ul></b></h4>
+      </div>
+      <div class="content">
+        {% for request_grp in request_grp %}
+
+          <div class="row">
+            <div class="col-md-12">
+                <label><b><ul>Project Title : </ul></label>  {{request_grp[2]|title_split}} </b><br>
+                <label><b><ul>Project Description : </ul></label>{{request_grp[2]|description_split}}</b>
+          </div></div>
+
+          <div class="row">
+            <div class="col-md-12">
+                <label><b><ul><u>Group Leader Details : </u></ul><b></label><br>
+                <label><ul>Name :  </ul></label><b>  {{request_grp[7]}}</b>
+                <label><ul>Roll No. :  </ul></label><b>  {{request_grp[1]}}</b><br>
+                <label><ul>Email :  </ul></label><b>  {{request_grp[6]}}</b>
+                <label><ul>Phone No. :</ul></label><b>  {{request_grp[11]}}</b><br>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+                <label><b><ul><u>Second Student Details : </u></ul><b></label><br>
+                <label><ul>Name :  </ul></label><b>  {{request_grp[8]}}</b>
+                <label><ul>Roll No. :  </ul></label><b>  {{request_grp[3]}}</b><br>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-12">
+                <label><b><ul><u>Third Student Details : </u></ul><b></label><br>
+                <label><ul>Name :  </ul></label><b>  {{request_grp[9]}}</b>
+                <label><ul>Roll No. :  </ul></label><b>  {{request_grp[4]}}</b><br>
+            </div>
+          </div>
+
+          {% if request_grp[10] %}
+            <div class="row">
+              <div class="col-md-12">
+                  <label><b><ul><u>Fourth Student Details : </u></ul><b></label><br>
+                  <label><ul>Name :  </ul></label><b>  {{request_grp[10]}}</b>
+                  <label><ul>Roll No. :  </ul></label><b>  {{request_grp[5]}}</b><br>
+              </div>
+            </div>
+          {% endif %}
+          {% endfor %}
+          <form action="{{url_for('mentor.show_request', lead_id=leaderid)}}" method="post">
+          <div class="text-center">
+            <button type="submit" name="add" value="add" class="btn btn-success btn-fill btn-wd">Add Group</button>
+            <button type="submit" name="remove" value="remove" class="btn btn-danger btn-fill btn-wd">Delete Request</button>
+          </div>
+          <div class="clearfix"></div>
+          </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

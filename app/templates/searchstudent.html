@@ -1,0 +1,75 @@
+{% extends "dashboard.html" %}
+
+{% block main %}
+	{% if request.method=='GET' %}
+		<div align="center">
+			<div class="col-lg-8 col-md-7">
+				<div class="card">
+					<div class="header">
+						<h4 class="title"><b>Search Student</b></h4>
+					</div>
+					<br>
+					<p class="text-justify text-muted">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter the Roll No. of the student to find his/her details.
+					</p>
+					<div class="content">
+						<form action="" method="post" accept-charset="utf-8">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+											<input class="form-control border-input" name="rollno" placeholder="Roll No." type="text">
+									</div>
+								</div>
+							</div>
+							<div class="text-center">
+								<button type="submit" class="btn btn-wd btn-info btn-fill btn-magnify">
+											<span class="btn-label">
+												<i class="ti-search"></i>
+											</span>
+												Search
+								</button>
+							</div>
+							<div class="clearfix"></div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% else %}
+		{% if student %}
+		<div class="row">
+			<div class="col-lg-6 col-md-12">
+			<div class="card">
+				<br>
+				<div class="header">
+					<h3 class="text-center text-danger"><b>{{student[0][2]}}</b></h3>
+				</div>
+				<div class="content">
+					<h5 class="text-center text-warning"><b>Roll No. : {{student[0][1]}}</b></h5>
+
+					<ul>
+					<h5><b class="text-info">Group : </b><b>CPG {{student[0][0]}}</b></h5>
+					<h5><b class="text-info">Project Title : </b><b>{{proj_title[0][0]|title_split}}</b></h5>
+					<h5 class="text-justify"><b class="text-info">Project Description : </b><b>{{proj_title[0][0]|description_split}}</b></h5>
+					<h5><b class="text-info">Email : </b><b>{{proj_title[0][1]}}</b></h5>
+					<h5><b class="text-info">Phone No. : </b><b>{{proj_title[0][2]}}</b></h5>
+					<h5><b class="text-info">Mentor 1: </b><b>{{mentorname[0][0]}}</b></h5>
+					{% if mentorname|length > 1 %}
+						<h5><b class="text-info">Mentor 2: </b><b>{{mentorname[1][0]}}</b></h5>
+					{% endif %}
+					{% for i in range(1, 7) %}
+					<h5><b class="text-info">Evaluation {{i}}: </b><b>{{student[0][i+2]}}</b></h5>
+					{% endfor %}
+					</ul>
+
+					<br>
+				</div>
+			</div>
+			</div>
+		<div>
+		{% endif %}
+		<div class="text-center">
+			<a href="{{ url_for('mentor.searchstudent') }}"> <button class="btn btn-info btn-fill btn-wd">Search Another Student</button></a>
+		</div>
+	{% endif %}
+{% endblock %}

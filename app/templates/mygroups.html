@@ -1,0 +1,149 @@
+{% extends "dashboard.html" %} {% block main %}
+<div align="center">
+  {% if sel_grp == False %}
+
+  {% if students|length == 0 %}
+  <h2> No Groups Assigned </h2>
+  {% else %}
+  <div class="typo-line">
+      <blockquote>
+      <p class="text-justify">
+      <b>Tips!</b><br>
+      This is the list of students in your group.<br>
+      Click on a row or any student field to set / modify marks for a particular student.
+      </p>
+      </blockquote>
+  </div>
+  <p class="text-left">
+  <h3 style="text-align:left;">Project Title: {{proj_title[0][0][0]|title_split}}</h3>
+  <h5 class="description text-left">Project Description: {{proj_title[0][0][0]|description_split}}</h5>
+  <h4 style="text-align:left;">Group : CPG {{students[0][0]}}</h4>
+  </p>
+  <p class="text-right">
+  <a href="{{ url_for('mentor.edit_group')}}?group={{students[0][0]}}" class="btn btn-round btn-fill btn-success">Edit Group Details</a>
+  </p>
+
+  <form action="" method="post" accept-charset="utf-8">
+    <div class="card">
+    <table class="table table-hover" align="center">
+      <thead>
+        <tr class="success">
+          <th style="text-align:center"><b>Name</b></th>
+          <th style="text-align:center"><b>Roll No.</b></th>
+          <th style="text-align:center"><b>Evaluation Marks</b></th>
+        </tr>
+      </thead>
+      <tbody>
+        <div id="accordian">
+          {% for student in students %}
+          <tr data-toggle="collapse" data-target=#{{student[1]}} aria-expanded="false">
+            <td align="center">{{student[2]}}</td>
+            <td align="center">{{student[1]}}</td>
+            <td align="center">
+              <div id="headingOne">
+                <h5>{{student[3]+student[4]+student[5]+student[6]+student[7]+student[8]}}/{{ maxmarks|sum }}</h5>
+              </div>
+            </td>
+            </tr><tr class="warning">
+            <td align="center" colspan="5">
+              <div id={{student[1]}} class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+
+                <!-- accordian content   starts -->
+                <table class="table table-hover" align="center">
+                  <thead>
+                    <tr class="info">
+                      <th style="text-align:center"><b>Evaluations</b></th>
+                      <th style="text-align:center"><b>Assigned Marks</b></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for j in range(1,7) %}
+                      {% if eval_details[j-1][2] is not none and eval_details[j-1][3] is not none %}
+                        {% if now >= eval_details[j-1][2] and now <= eval_details[j-1][3] %}
+                        <tr class="warning">
+                          <td align="center">Mentor Evaluation {{ j }}</td>
+                          <td align="center">
+                            <select class="form-control border-input" name={{student[1]}}_eval{{j}} data-style="btn-info btn btn-block" data-size="{{maxmarks[j-1]}}">
+                              <optgroup label="Assigned Marks">
+                                <option selected value={{student[j+2]}}>{{student[j+2]}}</option>
+                              </optgroup>
+                              <optgroup label="Select New Marks">
+                                {% for i in range(maxmarks[j-1]+1) %}
+                                <option value={{i}}>{{i}}</option>
+                                {% endfor %}
+                              </optgroup>
+                            </select>
+                          </td>
+                        </tr>
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
+                      </div>
+                  </tbody>
+
+                </table>
+              </div>
+
+                <!-- accordian content ends -->
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </div>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <button type="submit" name="action" value="sub_marks" class="btn btn-info btn-fill btn-wd">Submit</button>
+    </div>
+    <br><br>
+  </form>
+  {% endif %}
+  {% else %}
+  {% if all_groups !=[] %}
+      <div align="center">
+          <div class="col-lg-6 col-md-7">
+            <div class="card">
+              <div class="header">
+                <h4 class="title"><b>Select your assigned groups</b></h4>
+              </div>
+                <br>
+                  <p class="text-justify text-muted">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select a group from the list of your assigned groups.
+                  </p>
+
+              <div class="content">
+                <form action="" method="get" accept-charset="utf-8">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                          <select class="form-control border-input" name="group">
+                              {% for grp in all_groups %}
+                              <option value="{{ grp[0] }}">CPG {{ grp[0] }}</option>
+                              {% endfor %}
+                            </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                      <button type="submit" class="btn btn-info btn-fill btn-wd">Submit</button>
+                  </div>
+                  <div class="clearfix"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% else %}
+        <div class="col-lg-6 col-md-7">
+            <div class="card">
+              <div class="content">
+              <b>No groups are formed yet.</b>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+  {% endif %}
+</div>
+
+{% endblock %}

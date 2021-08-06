@@ -1,0 +1,56 @@
+{% extends 'dashboard_teams.html' %}
+
+{% block main %}
+  <div class="col-lg-8 col-md-7">
+    <div class="card">
+      <div class="header">
+        <h4 class="title">Upcoming/Present Evaluations</h4>
+      </div>
+      <div class="content">
+        <ol>
+        {% for record in query %}
+            {% if record[2] is not none and record[3] is not none %}
+                {% if record[3]>=now %}
+                    <li> 
+                        {% if record[0]>6 %}
+                            <b> Panel Evaluation {{ record[0]-6 }}</b><br><br>
+                        {% else %}
+                            <b> Evaluation {{ record[0] }}</b><br><br>
+                        {% endif %}
+                        <i class="ti-calendar"></i> Starting On:- {{ record[2] }}&emsp;&emsp;
+                        <i class="ti-calendar"></i> Will be Till:- {{ record[3] }} 
+                    </li> <br>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        </ol>
+      </div>
+    </div>
+
+    <div class="card">
+        <div class="header">
+          <h4 class="title">Past Evaluations</h4>
+        </div>
+        <div class="content">
+          <ol>
+          {% for record in query %}
+              {% if record[2] is not none and record[3] is not none %}
+                  {% if now>record[3] %}
+                      <li> 
+                        {% if record[0]>6 %}
+                            <b> Panel Evaluation {{ record[0]-6 }}</b><br><br>
+                        {% else %}
+                            <b> Evaluation {{ record[0] }}</b><br><br>
+                        {% endif %}
+                          <i class="ti-calendar"></i> Was From:- {{ record[2] }}&emsp;&emsp;
+                          <i class="ti-calendar"></i> Ended On:- {{ record[3] }} 
+                      </li> </br>
+                  {% endif %}
+              {% endif %}
+          {% endfor %}
+          </ol>
+        </div>
+    </div>
+  </div>
+
+{% endblock %}

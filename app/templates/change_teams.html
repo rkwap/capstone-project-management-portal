@@ -1,0 +1,47 @@
+{% extends 'dashboard_teams.html' %}
+
+{% block main %}
+  <div class="col-lg-8 col-md-7">
+    <div class="card">
+      <div class="header">
+        <h4 class="title">Change Password</h4>
+      </div>
+      <div class="content">
+        <form action="{{ url_for('teams.change_password') }}" method="post">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Old Password</label>
+                  <input class="form-control border-input" name="oldpassword" placeholder="Old Password" type="password">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>New Password</label>
+                  <input class="form-control border-input" name="newpassword" placeholder="New Password" type="password">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Confirm New Password</label>
+                  <input class="form-control border-input" name="confpassword" placeholder="Confirm New Password" value="" type="password">
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-info btn-fill btn-wd">Submit</button>
+          </div>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

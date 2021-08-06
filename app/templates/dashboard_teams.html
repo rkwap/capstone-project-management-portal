@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Dashboard</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/css/bootstrap-select.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Capstone core CSS    -->
+    <link href="/css/capstone.css" rel="stylesheet"/>
+
+    <!--  Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='/css/Muli-font.css' rel='stylesheet' type='text/css'>
+    <link href="/css/themify-icons.css" rel="stylesheet">
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-background-color="white" data-active-color="danger">
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+            <img src="/images/logo.png">
+                    <a style="font-size:1em;" class="simple-text">
+                        <b>Capstone Project Portal</b>
+                    </a>
+            </div>
+
+        		<ul class="nav">
+                <li {% if request.path == url_for('teams.dashboard') %}class="active"{% endif %}>
+                    <a href="{{ url_for('teams.dashboard')}}">
+						<i class="ti-home"></i>
+                        <p>Team Details</p>
+                    </a>
+                </li>
+
+                <li {% if request.path == url_for('teams.evaluations') %}class="active"{% endif %}>
+                    <a href="{{ url_for('teams.evaluations') }}">
+                        <i class="ti-calendar"></i>
+                        <p>Upcoming Evaluations</p>
+                    </a>
+                </li>
+
+                <li {% if request.path == url_for('teams.announcements') %}class="active"{% endif %}>
+                    <a href="{{ url_for('teams.announcements') }}">
+                        <i class="ti-announcement"></i>
+                        <p>Announcements</p>
+                    </a>
+                </li>
+
+                <li {% if request.path == url_for('mentor.download') %}class="active"{% endif %}>
+                    <a href="#">
+                        <i class="ti-cloud-up"></i>
+                        <p>Report Submission</p>
+                    </a>
+                </li>
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar bar1"></span>
+                        <span class="icon-bar bar2"></span>
+                        <span class="icon-bar bar3"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+											{% if request.path == url_for('teams.dashboard') %}
+												Team Details
+											{% elif request.path == url_for('teams.evaluations') %}
+												Evaluations Detail
+											{% elif request.path == url_for('teams.announcements') %}
+                                                Announcements
+                                            {% elif request.path == url_for('mentor.change') %}
+                                                Change Password
+											{% else %}
+												Admin Tools
+											{% endif %}
+										</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="ti-settings"></i>
+								<p>{{ user }}</p>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url_for('teams.change_password') }}">Change Password</a></li>
+                                <li><a href="{{ url_for('teams.logout') }}">Sign Out</a></li>
+                              </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid">
+                {% block main %}
+				{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+    <!--   Core JS Files   -->
+    <!-- <script src="/js/jquery-1.10.2.js" type="text/javascript"></script> -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/js/bootstrap-select.js" type="text/javascript"></script>
+    <script src="/js/picker.js" type="text/javascript"></script>
+    <script src="/js/picker.date.js" type="text/javascript"></script>
+    <script src="/js/picker.time.js" type="text/javascript"></script>
+    <link href="/css/default.css" rel="stylesheet">
+    <link href="/css/default.date.css" rel="stylesheet">
+    <link href="/css/default.time.css" rel="stylesheet">
+
+	<!--  Checkbox, Radio & Switch Plugins -->
+	<script src="/js/bootstrap-checkbox-radio.js"></script>
+	<script src="/assets/js/plugins/jquery.dataTables.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="/js/bootstrap-notify.js"></script>
+
+    <!-- Capstone Core javascript and methods for Demo purpose -->
+	<script src="/js/capstone.js"></script>
+
+	<!-- Capstone DEMO methods, don't include it in your project! -->
+    <script src="/js/demo.js"></script>
+
+    <script type="text/javascript">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				function flashMessages() {
+					{% for category, message in messages %}
+					$.notify({
+						icon: "ti-bell",
+						message: '{{ message }}'
+					},{
+						type: '{{ category }}',
+						timer: 4000,
+						placement: {
+							from: "top",
+							align: "center"
+					}
+					});
+					{% endfor %}
+				}
+        		window.onload = flashMessages;
+            {% endif %}
+        {% endwith %}
+
+				$(document).ready(function() {
+
+					$('.selectpicker').selectpicker();
+
+					$(".picker__input").click(function(){
+
+							$("#datepicker").pickadate({
+									formatSubmit: 'yyyy/mm/dd',
+									hiddenName: true
+							});
+
+					});
+
+					$(".picker__input").click(function(){
+
+							$("#datepicker2").pickadate({
+									formatSubmit: 'yyyy/mm/dd',
+									hiddenName: true
+							});
+
+					});
+
+				});
+    </script>
+
+
+</html>
