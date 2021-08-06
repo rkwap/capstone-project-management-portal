@@ -10,3 +10,6 @@ MYSQL_HOST = 'localhost'<br/>
 <br/>
 SESSION_PERMANENT = False<br/>
 SESSION_TYPE = "filesystem"<br/>
+
+# Schema Diagram
+![alt text](https://github.com/aryamaan98/capstone-project-management-portal/blob/documentation/images/schema.jpeg)
